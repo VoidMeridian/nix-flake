@@ -56,8 +56,13 @@
     pulse.enable = true;
     #jack.enable = true;
   };
+  # force ipv4
+  networking.enableIPv6 = false;
   services.openssh = {
     enable = true;
+    settings = {
+      PasswordAuthentication = true;
+    };
   };
   programs.hyprland.enable = lib.mkIf config.hyprland.enable true;
 

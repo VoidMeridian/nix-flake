@@ -43,7 +43,7 @@
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     nixosConfigurations = {
-      wonderland = nixpkgs.lib.nixosSystem {
+      ${outputs.hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           razer-laptop-control.nixosModules.default
