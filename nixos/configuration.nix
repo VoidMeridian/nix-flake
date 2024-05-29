@@ -11,9 +11,6 @@
 }: {
   security.sudo = {
     enable = true;
-    extraConfig = lib.mkIf config.razer.enable ''
-      ${config.username} ALL = NOPASSWD: ${config.services.razer-laptop-control.package}/libexec/daemon
-    '';
   };
   catppuccin = {
     flavor = "mocha";
@@ -23,7 +20,6 @@
     outputs.nixosModules
 
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./nvidia.nix
     ./security.nix
     ./registry.nix
@@ -33,8 +29,6 @@
     ./specialisations.nix
   ];
   services.power-profiles-daemon.enable = false;
-  razer.enable = true;
-  asus.enable = false;
   # programs.betterdiscord = {
   # 	enable = true;
   # 	plugins = ["ReadAllNotificationsButton"];
@@ -70,7 +64,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "The Vampira Swarm";
-    extraGroups = ["networkmanager" "wheel"] ++ lib.optional config.razer.enable "openrazer";
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # List packages installed in system profile. To search, run:

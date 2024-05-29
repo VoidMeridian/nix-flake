@@ -1,13 +1,19 @@
 {
-  config,
   lib,
+  config,
   # pkgs,
+  outputs,
   modulesPath,
   ...
 }: {
   imports = [
+    outputs.nixosModules
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usbhid"];
   boot.initrd.kernelModules = [];
@@ -38,4 +44,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hostname = "wonderland";
+  username = "alice";
 }

@@ -49,10 +49,6 @@
           catppuccin.nixosModules.catppuccin
           ./nixos/hardware-vampirahive.nix
           ./nixos/configuration.nix
-          {
-            config.razer.enable = true;
-            config.hostname = "vampirahive";
-          }
         ];
       };
       wonderland = nixpkgs.lib.nixosSystem {
@@ -61,10 +57,6 @@
           catppuccin.nixosModules.catppuccin
           ./nixos/hardware-wonderland.nix
           ./nixos/configuration.nix
-          {
-            config.asus.enable = true;
-            config.hostname = "wonderland";
-          }
         ];
       };
     };
@@ -78,7 +70,6 @@
           catppuccin.homeManagerModules.catppuccin
           ./home-manager/home.nix
           {
-            config.username = "vampira";
           }
         ];
       };
@@ -91,7 +82,6 @@
           catppuccin.homeManagerModules.catppuccin
           ./home-manager/home.nix
           {
-            config.username = "alice";
           }
         ];
       };
