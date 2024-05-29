@@ -38,21 +38,12 @@
       inherit inputs;
       pkgs = nixpkgs.legacyPackages.${system};
     };
-    username = "vampira";
+    username = "";
+    hostname = "";
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     nixosConfigurations = {
-      iso = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        system = "x86_64-linux";
-        modules = [
-          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          razer-laptop-control.nixosModules.default
-          catppuccin.nixosModules.catppuccin
-          ./nixos/configuration.nix
-        ];
-      };
-      vampirahive = nixpkgs.lib.nixosSystem {
+      wonderland = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           razer-laptop-control.nixosModules.default
@@ -62,7 +53,7 @@
       };
     };
     homeConfigurations = {
-      "${outputs.username}@vampirahive" = home-manager.lib.homeManagerConfiguration {
+      "${outputs.username}@${outputs.hostname}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [

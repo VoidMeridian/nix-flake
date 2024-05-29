@@ -30,16 +30,17 @@
     ./misc.nix
     ./packages.nix
     ./battery.nix
+    ./specialisations.nix
   ];
   services.power-profiles-daemon.enable = false;
-  razer.enable = true;
-  asus.enable = false;
+  razer.enable = false;
+  asus.enable = true;
   # programs.betterdiscord = {
   # 	enable = true;
   # 	plugins = ["ReadAllNotificationsButton"];
   # };
 
-  networking.hostName = "vampirahive"; # Define your hostname.
+  networking.hostName = "${config.hostname}"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;

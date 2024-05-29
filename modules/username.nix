@@ -8,4 +8,8 @@ with lib; {
     type = types.str;
     default = "${outputs.username}";
   };
+  options.hostname = mkOption {
+    type = types.str;
+    default = "${outputs.hostname}";
+  };
 }
