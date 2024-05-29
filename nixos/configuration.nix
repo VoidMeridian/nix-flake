@@ -33,8 +33,8 @@
     ./specialisations.nix
   ];
   services.power-profiles-daemon.enable = false;
-  razer.enable = false;
-  asus.enable = true;
+  razer.enable = true;
+  asus.enable = false;
   # programs.betterdiscord = {
   # 	enable = true;
   # 	plugins = ["ReadAllNotificationsButton"];

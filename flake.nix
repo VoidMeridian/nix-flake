@@ -38,8 +38,8 @@
       inherit inputs;
       pkgs = nixpkgs.legacyPackages.${system};
     };
-    username = "";
-    hostname = "";
+    username = "vampira";
+    hostname = "vampirahive";
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     nixosConfigurations = {
