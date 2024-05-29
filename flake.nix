@@ -47,6 +47,7 @@
         modules = [
           razer-laptop-control.nixosModules.default
           catppuccin.nixosModules.catppuccin
+          ./nixos/hardware-vampirahive.nix
           ./nixos/configuration.nix
           {
             config.razer.enable = true;
@@ -58,6 +59,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           catppuccin.nixosModules.catppuccin
+          ./nixos/hardware-wonderland.nix
           ./nixos/configuration.nix
           {
             config.asus.enable = true;
