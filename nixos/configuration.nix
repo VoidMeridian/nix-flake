@@ -55,11 +55,7 @@
     pulse.enable = true;
     #jack.enable = true;
   };
-  specialisation = {
-    hyprland.configuration = {
-      hyprland.enable = true;
-    };
-  };
+
   programs.hyprland.enable = lib.mkIf config.hyprland.enable true;
 
   users.users.${config.username} = {

@@ -43,4 +43,9 @@
 
   systemd.user.startServices = "sd-switch";
   programs.home-manager.enable = true;
+  specialisation = {
+    hyprland.configuration = {
+      hyprland.enable = true;
+    };
+  };
 }
