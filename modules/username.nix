@@ -1,15 +1,11 @@
-{
-  lib,
-  outputs,
-  ...
-}:
+{lib, ...}:
 with lib; {
   options.username = mkOption {
     type = types.str;
-    default = "${outputs.username}";
+    default = "ERROR";
   };
   options.hostname = mkOption {
     type = types.str;
-    default = "${outputs.hostname}";
+    default = "ERROR";
   };
 }

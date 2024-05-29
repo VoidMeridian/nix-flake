@@ -38,22 +38,36 @@
       inherit inputs;
       pkgs = nixpkgs.legacyPackages.${system};
     };
-    username = "vampira";
-    hostname = "vampirahive";
+
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     nixosConfigurations = {
-      ${outputs.hostname} = nixpkgs.lib.nixosSystem {
+      vampirahive = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           razer-laptop-control.nixosModules.default
           catppuccin.nixosModules.catppuccin
           ./nixos/configuration.nix
+          {
+            config.razer.enable = true;
+            config.hostname = "vampirahive";
+          }
+        ];
+      };
+      wonderland = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          ./nixos/configuration.nix
+          {
+            config.asus.enable = true;
+            config.hostname = "wonderland";
+          }
         ];
       };
     };
     homeConfigurations = {
-      "${outputs.username}@${outputs.hostname}" = home-manager.lib.homeManagerConfiguration {
+      "vampira@vampirahive" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
@@ -61,6 +75,22 @@
           plasma-manager.homeManagerModules.plasma-manager
           catppuccin.homeManagerModules.catppuccin
           ./home-manager/home.nix
+          {
+            config.username = "vampira";
+          }
+        ];
+      };
+      "alice@wonderland" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          nur.hmModules.nur
+          plasma-manager.homeManagerModules.plasma-manager
+          catppuccin.homeManagerModules.catppuccin
+          ./home-manager/home.nix
+          {
+            config.username = "alice";
+          }
         ];
       };
     };
