@@ -1,7 +1,7 @@
 {
   # inputs,
   # outputs,
-  # lib,
+  lib,
   config,
   pkgs,
   ...
@@ -24,6 +24,13 @@ in {
       nvidia-vaapi-driver
       libvdpau-va-gl
     ];
+  };
+  specialisation = {
+    sync.configuration = {
+      hardware.nvidia.prime.offload.enable = lib.mkForce false;
+      hardware.nvidia.prime.offload.enableOffloadCmd = lib.mkForce false;
+      hardware.nvidia.prime.sync.enable = lib.mkForce true;
+    };
   };
   hardware.nvidia = {
     modesetting.enable = true;

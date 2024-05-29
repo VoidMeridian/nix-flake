@@ -1,4 +1,3 @@
-flake.lock
 result
 nixos/hardware-configuration.nix
 home-manager/sources/plugins/
