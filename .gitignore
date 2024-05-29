@@ -1,3 +1,5 @@
 flake.lock
 result
 nixos/hardware-configuration.nix
+home-manager/sources/plugins/
+home-manager/sources/themes/blooming.theme.css
