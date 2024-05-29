@@ -78,7 +78,10 @@ in {
         "font.name.monospace.x-western" = "CaskaydiaCove Nerd Font Mono";
         "font.name.sans-serif.x-western" = "CaskaydiaCove Nerd Font Mono";
         "font.name.serif.x-western" = "CaskaydiaCove Nerd Font Mono";
-        "layout.css.devPixelsPerPx" = "2";
+        "layout.css.devPixelsPerPx" =
+          if config.hostname == "vampirahive"
+          then "2"
+          else "1";
         "media.cache_readahead_limit" = 9999;
         "media.cache_resume_threshold" = 9999;
         "media.encoder.webm.enabled" = false;
@@ -88,6 +91,7 @@ in {
         "media.webm.enabled" = false;
         "extensions.autoDisableScopes" = 0;
       };
+
       userChrome = ''
         #navigator-toolbox { font-family:CaskaydiaCove NFM !important }
       '';
