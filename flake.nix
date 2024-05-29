@@ -70,6 +70,8 @@
           catppuccin.homeManagerModules.catppuccin
           ./home-manager/home.nix
           {
+          config.hostname = "vampirahive";
+          config.username = "vampira";
           }
         ];
       };
@@ -82,6 +84,8 @@
           catppuccin.homeManagerModules.catppuccin
           ./home-manager/home.nix
           {
+          config.hostname = "wonderland";
+          config.username = "alice";
           }
         ];
       };
