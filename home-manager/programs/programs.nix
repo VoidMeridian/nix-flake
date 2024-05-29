@@ -45,5 +45,5 @@ in {
     userEmail = "voidmeridian@gmail.com";
   };
 
-  home.packages = with pkgs; [pure-prompt keepassxc discord pavucontrol qpwgraph jetbrains.clion krisp-patcher metacopy prismlauncher] ++ lib.optionals config.hyprland.enable [swaybg swayimg];
+  home.packages = with pkgs; [pure-prompt keepassxc discord pavucontrol qpwgraph krisp-patcher metacopy prismlauncher] ++ lib.optionals config.hyprland.enable [swaybg swayimg];
 }
