@@ -1,0 +1,102 @@
+/**
+ * @name Catppuccin Mocha
+ * @author winston#0001
+ * @authorId 505490445468696576
+ * @version 0.2.0
+ * @description 🎮 Soothing pastel theme for Discord
+ * @website https://github.com/catppuccin/discord
+ * @invite r6Mdz5dpFc
+ * **/
+
+
+@import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha-pink.theme.css");
+
+
+:root {
+/* --main-font: BigBlueTermPlusNerdFontMono Nerd Font; */
+    --main-font: CaskaydiaCove Nerd Font Mono;
+    --code-font: CaskaydiaCove Nerd Font Mono;
+    --font-display: var(--main-font);
+    --font-primary: var(--main-font);
+}
+
+body,
+button,
+input,
+select,
+textarea,
+::placeholder {
+    font-family: var(--main-font)
+}
+
+/* .typeMacOS__496b0:before,
+.typeMacOS__496b0:after {
+    margin: 0 2px;
+    font-size: 10px;
+    order: 1
+} */
+
+/* .typeMacOS__496b0:before {
+    content: "CV";
+    color: var(--main-color);
+    font-weight: 700;
+    text-shadow: 0 0 3px
+} 
+*/
+
+.theme-dark .container__590e2 .header__104ca {
+    height: 48px;
+    color: #fff;
+    font-family: var(--main-font);
+    font-weight: 600;
+    text-shadow: 0 0 3px #000
+}
+/* .users__65981,
+.total_c01838 {
+    width: 24px;
+    font-weight: 600;
+    text-align: right;
+    transition: all .15s ease-in-out
+}
+
+.name__590d6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-align: center;
+    transition: all .3s ease-in-out;
+} */
+
+.container__11d72 .title__9e2b0 {
+    margin-left: 0;
+    color: #fff;
+    text-shadow: 0 0 3px #000;
+    font-family: var(--main-font)
+}
+
+.markup_a7e664 code.inline {
+    padding: 3.5px 7.5px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 3px;
+    color: rgba(255, 255, 255, .7);
+    font-family: var(--code-font);
+    line-height: 22px
+}
+
+pre {
+    padding: 0;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid rgba(255, 255, 255, .05);
+    border-radius: 8px;
+    font-family: var(--code-font)
+}
+code {
+    font-family: var(--code-font)
+}
+.title__38892 {
+    font-family: var(--main-font);
+    font-weight: 300;
+    padding: 0 5px 0 5px;
+    border-radius: 4px
+}
