@@ -72,6 +72,7 @@
       clang-tools
       premake5
       cmake
+      jdk
       gnumake
     ]
     ++ config.extraPackages;
