@@ -60,6 +60,7 @@
     premake5
     cmake
     gnumake
+    jdk
   ];
 in {
   programs.partition-manager.enable = true;
