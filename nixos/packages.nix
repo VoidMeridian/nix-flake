@@ -17,10 +17,12 @@
     wget
     iw
     kdePackages.qtstyleplugin-kvantum
-    # catppuccin-kde
+    catppuccin-kde
     catppuccin-sddm
-    # catppuccin-gtk
-    # catppuccin-kvantum
+    catppuccin-gtk
+    catppuccin-kvantum
+    sweet
+    sweet-nova
     qt5.qtwebchannel
     qt5.qtwebsockets
     python312Packages.websockets
