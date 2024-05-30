@@ -8,4 +8,7 @@ with lib; {
     type = types.str;
     default = "ERROR";
   };
+  options.hyprland = {
+    enable = mkEnableOption "Hyprland";
+  };
 }

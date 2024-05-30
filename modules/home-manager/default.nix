@@ -1,6 +1,10 @@
-{
+{lib, ...}:
+with lib; {
   imports = [
-    ../username.nix
-    ../hyprland.nix
+    ../common.nix
   ];
+  options.firefoxZoom = mkOption {
+    type = types.int;
+    default = 1;
+  };
 }

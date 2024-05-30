@@ -4,15 +4,6 @@
   lib,
   ...
 }: {
-  hardware.openrazer.enable = true;
-
-  services.razer-laptop-control.enable = true;
-  hostname = "vampirahive";
-  username = "vampira";
-  users.users.${config.username}.extraGroups = ["networkmanager" "wheel" "openrazer"];
-  security.sudo.extraConfig = ''
-    ${config.username} ALL = NOPASSWD: ${config.services.razer-laptop-control.package}/libexec/daemon
-  '';
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];

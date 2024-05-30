@@ -78,10 +78,7 @@ in {
         "font.name.monospace.x-western" = "CaskaydiaCove Nerd Font Mono";
         "font.name.sans-serif.x-western" = "CaskaydiaCove Nerd Font Mono";
         "font.name.serif.x-western" = "CaskaydiaCove Nerd Font Mono";
-        "layout.css.devPixelsPerPx" =
-          if config.hostname == "vampirahive"
-          then "2"
-          else "1";
+        "layout.css.devPixelsPerPx" = toString config.firefoxZoom;
         "media.cache_readahead_limit" = 9999;
         "media.cache_resume_threshold" = 9999;
         "media.encoder.webm.enabled" = false;

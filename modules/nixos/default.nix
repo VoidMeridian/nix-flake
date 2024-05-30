@@ -1,6 +1,10 @@
-{
+{lib, ...}:
+with lib; {
   imports = [
-    ../username.nix
-    ../hyprland.nix
+    ../common.nix
   ];
+  options.extraPackages = mkOption {
+    type = types.listOf types.package;
+    default = [];
+  };
 }

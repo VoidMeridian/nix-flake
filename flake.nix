@@ -48,6 +48,7 @@
           razer-laptop-control.nixosModules.default
           catppuccin.nixosModules.catppuccin
           ./nixos/hardware-vampirahive.nix
+          ./settings/nixos/vampirahive.nix
           ./nixos/configuration.nix
         ];
       };
@@ -56,6 +57,7 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           ./nixos/hardware-wonderland.nix
+          ./settings/nixos/wonderland.nix
           ./nixos/configuration.nix
         ];
       };
@@ -68,11 +70,8 @@
           nur.hmModules.nur
           plasma-manager.homeManagerModules.plasma-manager
           catppuccin.homeManagerModules.catppuccin
+          ./settings/home-manager/vampirahive.nix
           ./home-manager/home.nix
-          {
-            config.hostname = "vampirahive";
-            config.username = "vampira";
-          }
         ];
       };
       "alice@wonderland" = home-manager.lib.homeManagerConfiguration {
@@ -82,11 +81,8 @@
           nur.hmModules.nur
           plasma-manager.homeManagerModules.plasma-manager
           catppuccin.homeManagerModules.catppuccin
+          ./settings/home-manager/wonderland.nix
           ./home-manager/home.nix
-          {
-            config.hostname = "wonderland";
-            config.username = "alice";
-          }
         ];
       };
     };
