@@ -2,7 +2,6 @@
   outputs,
   lib,
   pkgs,
-  config,
   ...
 }: {
   programs.partition-manager.enable = true;
@@ -27,53 +26,51 @@
       grim -g "$(slurp)" - | wl-copy
       wl-paste > "$DIR/$NAME"
     '';
-  in
-    [
-      wget
-      iw
-      kdePackages.qtstyleplugin-kvantum
-      # catppuccin-kde
-      catppuccin-sddm
-      # catppuccin-gtk
-      # catppuccin-kvantum
-      qt5.qtwebchannel
-      qt5.qtwebsockets
-      python312Packages.websockets
-      qt5.full
-      nvtopPackages.full
-      wget
-      lshw
-      curl
-      file
-      wlr-randr
-      screenshot
-      wl-clipboard
-      grim
-      slurp
-      strawberry
-      wlprop
-      feh
-      lxde.lxsession
-      xwaylandvideobridge
-      glib
-      lm_sensors
-      gnome.dconf-editor
-      giflib
-      yt-dlp
-      swayimg
-      ffmpeg
-      kdePackages.sddm-kcm
-      outputs.formatter.x86_64-linux
-      # xfce.thunar
-      nil
-      gcc
-      clang
-      lldb
-      clang-tools
-      premake5
-      cmake
-      jdk
-      gnumake
-    ]
-    ++ config.extraPackages;
+  in [
+    wget
+    iw
+    kdePackages.qtstyleplugin-kvantum
+    # catppuccin-kde
+    catppuccin-sddm
+    # catppuccin-gtk
+    # catppuccin-kvantum
+    qt5.qtwebchannel
+    qt5.qtwebsockets
+    python312Packages.websockets
+    qt5.full
+    nvtopPackages.full
+    wget
+    lshw
+    curl
+    file
+    wlr-randr
+    screenshot
+    wl-clipboard
+    grim
+    slurp
+    strawberry
+    wlprop
+    feh
+    lxde.lxsession
+    xwaylandvideobridge
+    glib
+    lm_sensors
+    gnome.dconf-editor
+    giflib
+    yt-dlp
+    swayimg
+    ffmpeg
+    kdePackages.sddm-kcm
+    outputs.formatter.x86_64-linux
+    # xfce.thunar
+    nil
+    gcc
+    clang
+    lldb
+    clang-tools
+    premake5
+    cmake
+    jdk
+    gnumake
+  ];
 }
