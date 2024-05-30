@@ -2,24 +2,11 @@
   outputs,
   lib,
   pkgs,
+  inputs,
+  config,
   ...
-}: {
-  programs.partition-manager.enable = true;
-  programs.zsh.enable = true;
-  programs.steam.enable = true;
-  programs.firefox.enable = true;
-  programs.git.enable = true;
-  programs.dconf.enable = true;
-  # programs.nm-applet.enable = true;
-  programs.gamemode.enable = true;
-  programs.xfconf.enable = true;
-  # programs.thunar.enable = true;
-  programs.nix-index = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.command-not-found.enable = lib.mkForce false;
-  environment.systemPackages = with pkgs; let
+}: let
+  basePackages = with pkgs; let
     screenshot = writeScriptBin "screenshot" ''
       [[ -z \$\{DIR\} ]] && DIR="$HOME/Pictures"
       [[ -z \$\{NAME+z\} ]] && NAME="$(date "+%Y%m%d_%H%M-%3N").png"
@@ -72,4 +59,37 @@
     cmake
     gnumake
   ];
+in {
+  programs.partition-manager.enable = true;
+  programs.zsh.enable = true;
+  programs.steam.enable = true;
+  programs.firefox.enable = true;
+  programs.git.enable = true;
+  programs.dconf.enable = true;
+  # programs.nm-applet.enable = true;
+  programs.gamemode.enable = true;
+  programs.xfconf.enable = true;
+  # programs.thunar.enable = true;
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  programs.command-not-found.enable = lib.mkForce false;
+  environment.systemPackages = with pkgs; let
+    razerdaemon = writeScriptBin "razerdaemon" ''
+      sudo ${
+        inputs.razer-laptop-control.packages.x86_64-linux.default
+      }/libexec/daemon
+    '';
+  in
+    if config.hostname == "vampirahive"
+    then
+      basePackages
+      ++ [
+        openrazer-daemon
+        razergenie
+        razerdaemon
+        inputs.razer-laptop-control.packages.x86_64-linux.default
+      ]
+    else basePackages;
 }
