@@ -7,4 +7,8 @@ with lib; {
     type = types.listOf types.package;
     default = [];
   };
+  options.extraGroups = mkOption {
+    type = types.listOf types.str;
+    default = [];
+  };
 }

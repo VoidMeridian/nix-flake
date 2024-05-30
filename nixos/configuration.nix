@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   # inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -17,8 +16,6 @@
     enable = true;
   };
   imports = [
-    outputs.nixosModules
-
     # Include the results of the hardware scan.
     ./nvidia.nix
     ./security.nix
@@ -29,6 +26,7 @@
     ./specialisations.nix
   ];
   services.power-profiles-daemon.enable = false;
+  services.udev.enable = true;
   # programs.betterdiscord = {
   # 	enable = true;
   # 	plugins = ["ReadAllNotificationsButton"];
@@ -64,7 +62,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "The Vampira Swarm";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel"] ++ config.extraGroups;
   };
 
   # List packages installed in system profile. To search, run:
