@@ -62,7 +62,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "The Vampira Swarm";
-    extraGroups = ["networkmanager" "wheel"] ++ config.extraGroups;
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # List packages installed in system profile. To search, run:

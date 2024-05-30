@@ -47,7 +47,7 @@
         modules = [
           razer-laptop-control.nixosModules.default
           catppuccin.nixosModules.catppuccin
-          ./nixos/hardware-vampirahive.nix
+          ./hardware/vampirahive.nix
           ./settings/nixos/vampirahive.nix
           ./nixos/configuration.nix
         ];
@@ -56,7 +56,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           catppuccin.nixosModules.catppuccin
-          ./nixos/hardware-wonderland.nix
+          ./hardware/wonderland.nix
           ./settings/nixos/wonderland.nix
           ./nixos/configuration.nix
         ];
