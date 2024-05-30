@@ -30,14 +30,16 @@
     wget
     iw
     kdePackages.qtstyleplugin-kvantum
-    # catppuccin-kde
+    catppuccin-kde
     catppuccin-sddm
-    # catppuccin-gtk
-    # catppuccin-kvantum
+    catppuccin-gtk
+    catppuccin-kvantum
     qt5.qtwebchannel
     qt5.qtwebsockets
     python312Packages.websockets
     qt5.full
+    sweet
+    sweet-nova
     nvtopPackages.full
     wget
     lshw
