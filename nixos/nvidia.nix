@@ -29,7 +29,7 @@ in {
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    dynamicBoost = true;
+    dynamicBoost.enable = true;
     open = false;
     nvidiaSettings = true;
     package = stable;
