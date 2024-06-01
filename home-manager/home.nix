@@ -2,6 +2,7 @@
   # inputs,
   outputs,
   config,
+  lib,
   # pkgs,
   ...
 }: {
@@ -31,6 +32,12 @@
     homeDirectory = "/home/${config.username}";
     file = {
       "bg.png".source = ./sources/bg.png;
+    };
+    activation = {
+      # just remove gtkrc-2.0 before nixos even checks for it
+      removeGtkrc = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+        run rm ~/.gtkrc-2.0 -rf
+      '';
     };
   };
   # xdg.configFile."BetterDiscord/plugins".source = ./plugins;
