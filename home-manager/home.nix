@@ -39,7 +39,7 @@
 
   xdg.enable = true;
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   systemd.user.startServices = "sd-switch";
   programs.home-manager.enable = true;
