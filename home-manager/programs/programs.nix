@@ -12,6 +12,17 @@
     mv out.m4a "$2"
     mpc update
   '';
+  network-reset = pkgs.writeScriptBin "network-reset" ''
+    #! /usr/bin/env nix-shell
+    #! nix-shell -i bash -p bash iputils networkmanager
+    until ping $1 -c 2;
+    do
+    nmcli con down $2
+    nmcli con up $2
+    sleep 3
+    done
+
+  '';
   krisp-patcher = pkgs.writers.writePython3Bin "krisp-patcher" {
     libraries = with pkgs.python3Packages; [capstone pyelftools];
     flakeIgnore = [
@@ -45,5 +56,5 @@ in {
     userEmail = "voidmeridian@gmail.com";
   };
 
-  home.packages = with pkgs; [pure-prompt keepassxc discord pavucontrol qpwgraph krisp-patcher metacopy prismlauncher] ++ lib.optionals config.hyprland.enable [swaybg swayimg];
+  home.packages = with pkgs; [pure-prompt keepassxc discord pavucontrol qpwgraph krisp-patcher metacopy network-reset prismlauncher] ++ lib.optionals config.hyprland.enable [swaybg swayimg];
 }
