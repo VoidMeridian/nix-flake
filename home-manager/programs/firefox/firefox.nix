@@ -82,7 +82,7 @@ in {
         "media.cache_readahead_limit" = 9999;
         "media.cache_resume_threshold" = 9999;
         "media.encoder.webm.enabled" = false;
-        "media.mediasource.enabled" = false;
+        "media.mediasource.enabled" = true;
         "media.mediasource.webm.audio.enabled" = false;
         "media.mediasource.webm.enabled" = false;
         "media.webm.enabled" = false;
