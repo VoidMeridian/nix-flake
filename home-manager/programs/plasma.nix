@@ -79,37 +79,37 @@
       wallpaper = "/home/${config.username}/bg.png";
     };
 
-    panels = [
-      {
-        height = 46;
-        lengthMode = "fill";
-        location = "bottom";
-        alignment = "center";
-        hiding = "none";
-        floating = true;
-        widgets = [
-          "org.kde.plasma.kickoff"
-          "org.kde.plasma.icontasks"
-          "org.kde.plasma.systemtray"
-          "org.kde.plasma.digitalclock"
-          "org.kde.plasma.showdesktop"
-          {
-            systemMonitor = {
-              title = "CPU Usage";
-              displayStyle = "org.kde.ksysguard.piechart";
-              textOnlySensors = [];
-              totalSensors = [];
-              sensors = [
-                {
-                  name = "cpu/all/averageTemperature";
-                  color = "36,166,150";
-                }
-              ];
-            };
-          }
-        ];
-      }
-    ];
+    # panels = [
+    #   {
+    #     height = 46;
+    #     lengthMode = "fill";
+    #     location = "bottom";
+    #     alignment = "center";
+    #     hiding = "none";
+    #     floating = true;
+    #     widgets = [
+    #       "org.kde.plasma.kickoff"
+    #       "org.kde.plasma.icontasks"
+    #       "org.kde.plasma.systemtray"
+    #       "org.kde.plasma.digitalclock"
+    #       "org.kde.plasma.showdesktop"
+    #       {
+    #         systemMonitor = {
+    #           title = "CPU Usage";
+    #           displayStyle = "org.kde.ksysguard.piechart";
+    #           textOnlySensors = [];
+    #           totalSensors = [];
+    #           sensors = [
+    #             {
+    #               name = "cpu/all/averageTemperature";
+    #               color = "36,166,150";
+    #             }
+    #           ];
+    #         };
+    #       }
+    #     ];
+    #   }
+    # ];
 
     fonts.general = {
       family = "CaskaydiaCove Nerd Font Mono";
