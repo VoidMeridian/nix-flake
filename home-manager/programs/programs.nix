@@ -49,7 +49,10 @@ in {
     enable = true;
     catppuccin.enable = true;
   };
-
+  # programs.betterdiscord = {
+  #   enable = true;
+  #   plugins = with pkgs; [ReadAllNotificationsButton PermissionsViewer];
+  # };
   programs.git = {
     enable = true;
     userName = "Miss Vampira";

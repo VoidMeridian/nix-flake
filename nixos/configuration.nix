@@ -27,10 +27,6 @@
   ];
   services.power-profiles-daemon.enable = false;
   services.udev.enable = true;
-  # programs.betterdiscord = {
-  # 	enable = true;
-  # 	plugins = ["ReadAllNotificationsButton"];
-  # };
 
   networking.hostName = "${config.hostname}"; # Define your hostname.
 

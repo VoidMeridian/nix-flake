@@ -76,18 +76,9 @@
       colorScheme = "Sweet";
       cursorTheme = "Catppuccin-Mocha-Mauve-Cursors";
       iconTheme = "candy-icons";
-      # lookAndFeel = "Sweet-Ambar-Blue";
       wallpaper = "/home/${config.username}/bg.png";
     };
-    # startup = {
-    #   startupScript = {
-    #     razer = {
-    #       text = ''
-    #         sudo ${inputs.razer-laptop-control.packages.x86_64-linux.default}/libexec/daemon > /home/vampira/.razerdaemon.log
-    #       '';
-    #     };
-    #   };
-    # };
+
     panels = [
       {
         height = 46;
@@ -102,7 +93,6 @@
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
           "org.kde.plasma.showdesktop"
-          # "org.kde.plasma.systemmonitor"
           {
             systemMonitor = {
               title = "CPU Usage";
@@ -120,14 +110,7 @@
         ];
       }
     ];
-    # systemMonitor = {
-    #   opts = {
-    #     displayStyle = "org.kde.ksysguard.piechart";
-    #     sensors.type = [
-    #       {name = "cpu/all/averageTemperature";}
-    #     ];
-    #   };
-    # };
+
     fonts.general = {
       family = "CaskaydiaCove Nerd Font Mono";
       pointSize = 11;
