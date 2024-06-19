@@ -19,6 +19,7 @@
     # Include the results of the hardware scan.
     ./nvidia.nix
     ./security.nix
+    ./bluetooth.nix
     ./registry.nix
     ./misc.nix
     ./packages.nix

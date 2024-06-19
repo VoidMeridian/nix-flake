@@ -51,7 +51,7 @@ in {
   };
   # programs.betterdiscord = {
   #   enable = true;
-  #   plugins = with pkgs; [ReadAllNotificationsButton PermissionsViewer];
+  #   plugins = with config.betterdiscord.packages; [ReadAllNotificationsButton Pluralchum BetterRoleColors NoReplyPing];
   # };
   programs.git = {
     enable = true;

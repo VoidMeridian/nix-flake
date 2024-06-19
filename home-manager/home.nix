@@ -15,17 +15,6 @@
     outputs.homeModules
     ./programs/programs.nix
   ];
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
 
   home = {
     username = "${config.username}";

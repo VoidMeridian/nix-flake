@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixos.url = "nixpkgs/unstable";
     razer-laptop-control.url = "github:voidmeridian/razer-laptop-control";
-    betterdiscord.url = "path:///home/vampira/projects/BDFlake";
+    # betterdiscord.url = "path:///home/vampira/projects/BDFlake";
     # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
     nur.url = "github:nix-community/NUR";
@@ -28,24 +28,38 @@
     home-manager,
     plasma-manager,
     razer-laptop-control,
-    betterdiscord,
+    # betterdiscord,
     ...
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
   in {
-    packages = import ./pkgs nixpkgs.legacyPackages.${system};
+    packages = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+        overlays = [
+          self.overlays.additions
+          self.overlays.modifications
+          self.overlays.unstable-packages
+        ];
+      };
+    };
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     overlays = import ./overlays {
       inherit inputs;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = self.packages;
     };
 
     nixosModules = import ./modules/nixos;
     homeModules = import ./modules/home-manager;
     nixosConfigurations = {
       vampirahive = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          pkgs = self.packages;
+          inherit inputs outputs;
+        };
         modules = [
           razer-laptop-control.nixosModules.default
           catppuccin.nixosModules.catppuccin
@@ -55,7 +69,10 @@
         ];
       };
       wonderland = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          pkgs = self.packages;
+          inherit inputs outputs;
+        };
         modules = [
           catppuccin.nixosModules.catppuccin
           ./hardware/wonderland.nix
@@ -66,19 +83,22 @@
     };
     homeConfigurations = {
       "vampira@vampirahive" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        pkgs = self.packages;
+        extraSpecialArgs = {
+          pkgs = self.packages;
+          inherit inputs outputs;
+        };
         modules = [
           nur.hmModules.nur
           plasma-manager.homeManagerModules.plasma-manager
           catppuccin.homeManagerModules.catppuccin
-          betterdiscord.homeManagerModules.default
+          # betterdiscord.homeManagerModules.default
           ./settings/home-manager/vampirahive.nix
           ./home-manager/home.nix
         ];
       };
       "alice@wonderland" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = self.packages;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           nur.hmModules.nur

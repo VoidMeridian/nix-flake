@@ -1,22 +1,10 @@
 {
   # inputs,
-  outputs,
   lib,
   # config,
   pkgs,
   ...
 }: {
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-      cudaSupport = false;
-    };
-  };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
   boot.loader.grub = lib.mkForce {
