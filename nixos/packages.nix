@@ -67,6 +67,7 @@
     # xfce.thunar
     nil
     gcc
+    direnv
     clang
     lldb
     clang-tools

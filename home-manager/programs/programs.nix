@@ -6,10 +6,10 @@
   metacopy = pkgs.writeScriptBin "metacopy" ''
     #! /usr/bin/env nix-shell
     #! nix-shell -i bash -p bash ffmpeg yt-dlp mpc-cli
-    yt-dlp "$1" -x --audio-format m4a -o file.m4a
-    ffmpeg -i "$2" -i file.m4a -map 1 -c copy -map_metadata 0 out.m4a
-    rm file.m4a
-    mv out.m4a "$2"
+    yt-dlp "$1" -x --audio-format flac -o file.flac
+    ffmpeg -i "$2" -i file.flac -map 1 -c copy -map_metadata 0 out.flac
+    rm file.flac
+    mv out.flac "$2"
     mpc update
   '';
   network-reset = pkgs.writeScriptBin "network-reset" ''
