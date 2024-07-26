@@ -41,6 +41,7 @@ in {
     ./kitty.nix
     ./mpd.nix
     ./vscode.nix
+    ./direnv.nix
   ];
   # hyprland.enable = true;
   services.mpd-discord-rpc.enable = true;
