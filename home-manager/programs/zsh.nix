@@ -6,7 +6,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "sudo"];
+      plugins = ["git" "sudo" "direnv"];
     };
     initExtra = ''
       autoload -U promptinit && promptinit && prompt pure
