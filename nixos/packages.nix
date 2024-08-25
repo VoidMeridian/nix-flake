@@ -63,6 +63,7 @@
     swayimg
     ffmpeg
     kdePackages.sddm-kcm
+    kdePackages.kasts
     outputs.formatter.x86_64-linux
     # xfce.thunar
     nil
